@@ -12,7 +12,6 @@ import { Provider } from "react-redux"
 
  const store  = storeConfigure();
 
-
 const jsx = (
     <Provider store={store}>
         <AppRouter />
