@@ -12,14 +12,6 @@ import { Provider } from "react-redux"
 
  const store  = storeConfigure();
 
-const expenseOne = store.dispatch(expenseAdder({  description : "Water Bill" , amount : 1800 , createdAt : 690}))
-const expenseTwo = store.dispatch(expenseAdder({ description : "Gas Bill" , amount : 950 , createdAt : 200}))
-const expenseThree = store.dispatch(expenseAdder({ description: "Rent", amount: 3500, createdAt: 350 }))
-
-
-const data = store.getState()
-
-console.log(filterExpenses( data.expenses , data.filter)); 
 
 const jsx = (
     <Provider store={store}>
