@@ -4,5 +4,6 @@ exports[`Should render header component  1`] = `
 <div>
   <[object Object] />
   <[object Object] />
+  <[object Object] />
 </div>
 `;

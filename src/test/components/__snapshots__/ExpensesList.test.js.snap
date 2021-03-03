@@ -5,9 +5,6 @@ exports[`Should render ExpensesList when no expense is there 1`] = `
   <h1>
     Expense List
   </h1>
-  <p>
-    No expenses in the list
-  </p>
 </div>
 `;
 
