@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render header component  1`] = `
+<div>
+  <p>
+     this is form my dashboard component
+  </p>
+  <[object Object] />
+  <[object Object] />
+</div>
+`;
