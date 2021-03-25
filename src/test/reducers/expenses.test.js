@@ -35,14 +35,19 @@ test("Should remove a expense from the id given", () => {
         }
     ]
 
-    const state = expenseReducer(expenses, { type: "ExpenseRemove" , id : 2})
+    const state = expenseReducer(expenses, { type: "ExpenseRemove" , id : "2"})
 
     expect(state).toEqual([expenses[0] , expenses[2]])
 })
 
 test("Should edit a expense according to the update given", () => {
     
-    const state = expenseReducer(expenses , { type : "ExpenseEdit" , id: 2 , update : { description : "Tang"}})
+    const state = expenseReducer(expenses , { type : "ExpenseEdit" , id: "2" , update : { description : "Tang"}})
 
     expect(state[1].description).toBe("Tang")
+})
+
+test("Should set expenses", () => {
+    const state = expenseReducer(expenses , { type : "ExpenseSet" , expenses : [expenses[1]]})
+    expect(state).toEqual([expenses[1]])
 })

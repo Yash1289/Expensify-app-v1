@@ -2,22 +2,19 @@
 
 exports[`Should render ExpensesList when no expense is there 1`] = `
 <div>
-  <h1>
-    Expense List
-  </h1>
+  <p>
+    No Expenses
+  </p>
 </div>
 `;
 
 exports[`Should render ExpensesList with expenses 1`] = `
 <div>
-  <h1>
-    Expense List
-  </h1>
   <ExpenseListItem
     amount={120}
     createdAt={0}
     description="Coffee"
-    id={1}
+    id="1"
     key="1"
     note="Friends forced me into buying a coffee for everyonee"
   />
@@ -25,7 +22,7 @@ exports[`Should render ExpensesList with expenses 1`] = `
     amount={35}
     createdAt={345600000}
     description="Tea"
-    id={2}
+    id="2"
     key="2"
     note="Everyone drinks it so i drink it too what's the problem"
   />
@@ -33,7 +30,7 @@ exports[`Should render ExpensesList with expenses 1`] = `
     amount={70}
     createdAt={-345600000}
     description="Tang"
-    id={3}
+    id="3"
     key="3"
     note="It is the season of summer and we must drink refreshing things in it"
   />

@@ -5,11 +5,11 @@ import ReactShallowRenderer from "react-test-renderer/shallow"
 import Header from "../../components/Header"
 
 
-test("Should render header component ", () => {
+ test("Should render header component ", () => {
     const wrapper = shallow(<Header />)
     expect(wrapper).toMatchSnapshot(); 
-      /*  const renderer = new ReactShallowRenderer();
+      /*   const renderer = new ReactShallowRenderer();
     renderer.render(<Header />)
-    expect(renderer.getRenderOutput()).toMatchSnapshot();     */
-})
+    expect(renderer.getRenderOutput()).toMatchSnapshot(); */     
+}) 
 
