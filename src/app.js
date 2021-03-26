@@ -14,9 +14,6 @@ import "../src/firebase/firebase"
 import { firebase } from "./firebase/firebase"
 
 
-
-
-
  const store  = storeConfigure();
 
 const jsx = (
@@ -24,7 +21,7 @@ const jsx = (
         <AppRouter />
     </Provider>
 )
-ReactDOM.render(<p>LOADINGG....</p>, document.querySelector("#app"))
+
 
 let hasRendered = false
 
@@ -33,8 +30,9 @@ const renderApp = () => {
         ReactDOM.render(jsx, document.querySelector("#app"))
         hasRendered = true ;
     }
-}
+}    
 
+ReactDOM.render(<p>LOADINGG...</p>, document.querySelector("#app"))
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
