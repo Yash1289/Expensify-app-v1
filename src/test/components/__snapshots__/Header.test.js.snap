@@ -5,18 +5,25 @@ exports[`Should render header component  1`] = `
   <h1>
     Expensify App
   </h1>
-  <[object Object]
+  <NavLink
     activeClassName="is-active"
+    aria-current="page"
     exact={true}
-    to="/"
+    to="/dashboard"
   >
     Dashboard
-  </[object Object]>
-  <[object Object]
+  </NavLink>
+  <NavLink
     activeClassName="is-active"
+    aria-current="page"
     to="/create"
   >
     Create
-  </[object Object]>
+  </NavLink>
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
 </div>
 `;

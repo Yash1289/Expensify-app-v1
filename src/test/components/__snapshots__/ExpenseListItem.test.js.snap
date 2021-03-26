@@ -2,13 +2,15 @@
 
 exports[`Should render individual expense list item 1`] = `
 <div>
-  <[object Object]
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
     to="/edit/1"
   >
     <h3>
       Coffee
     </h3>
-  </[object Object]>
+  </NavLink>
   <p>
     ₹ 120
      - 

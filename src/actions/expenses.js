@@ -7,10 +7,11 @@ export const expenseAdder = (expense) => ({
 });
 
 export const startExpenseAdder = (expenseData = {}) => {
-    return (dispatch) => {
+    return (dispatch , getState ) => {
+        const uid = getState().auth.uid
         const { description = "", note = "", amount = 0, createdAt = 0 } = expenseData
         const expense = { description , note , amount , createdAt }
-        return database.ref("expense").push(expense).then((snapshot) => {
+        return database.ref(`users/${uid}/expenses`).push(expense).then((snapshot) => {
                 dispatch(expenseAdder({ id: snapshot.key, ...expense }))
         })
     }
@@ -22,8 +23,9 @@ export const startExpenseAdder = (expenseData = {}) => {
 })
 
 export const startSetExpense = () => {
-    return(dispatch) => {
-        return database.ref("expense").once("value").then((snapshot) => {
+    return(dispatch, getState ) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/expenses`).once("value").then((snapshot) => {
             const expenses = []
             snapshot.forEach((childSnapshot) => {
                 expenses.push({
@@ -43,9 +45,10 @@ export const expenseRemover = ({ id }) => ({
 })
 
  export const startExpenseRemover = (data) => {
-    return(dispatch) => {
+    return(dispatch , getState) => {
+        const uid = getState().auth.uid
         const { id } = data
-        return database.ref('expense').child(id).remove().then(() => {
+        return database.ref(`users/${uid}/expenses`).child(id).remove().then(() => {
             dispatch(expenseRemover(data))
         })
     }
@@ -58,8 +61,9 @@ export const expenseEdit = (id, update) => ({
 })
 
  export const startExpenseEdit = (id , update) => {
-    return (dispatch) => {
-        return database.ref("expense").child(id).update({...update}).then(() => {
+    return (dispatch , getState) => {
+        const uid  = getState().auth.uid
+        return database.ref(`users/${uid}/expenses`).child(id).update({...update}).then(() => {
             dispatch(expenseEdit(id , update))
         })
     }
