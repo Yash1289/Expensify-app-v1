@@ -2,10 +2,16 @@ import React from 'react'
 import filterExpenses from "../selectors/expenses"
 import { connect } from "react-redux"
 import selectExpensesTotal from "../selectors/ExpensesTotal"
+import { Link } from "react-router-dom"
 
 export const ExpensesSummary = ({ expensesCount , expensesTotal }) => (
-    <div>
-        <h1>Viewing {expensesCount} {expensesCount === 1 ? " expense" : " expenses"} totalling {expensesTotal}</h1>
+    <div className="page-header">
+        <div className="content-container">
+            <h1 className="page-header__title">Viewing <span>{expensesCount}</span> {expensesCount === 1 ? " expense" : " expenses"} totalling <span>{expensesTotal}</span></h1>
+            <div className="page-header__actions">
+                <Link className="button" to="/create">Add Expense</Link>
+            </div>
+        </div>     
     </div>
     
 )

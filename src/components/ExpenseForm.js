@@ -40,7 +40,7 @@ class ExpenseForm extends React.Component{
     onSubmit = (e) =>{
         e.preventDefault()
         if(!this.state.description || !this.state.amount){
-            this.setState(() => ({ error : "please provide description and amount"}))
+            this.setState(() => ({ error : "Please provide description and amount"}))
         }
         else{
             this.setState(() => ({ error : ""}))
@@ -54,15 +54,16 @@ class ExpenseForm extends React.Component{
     }
     render() {
         return (
-            <div>
-            {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.error && <p className="form__error" >{this.state.error}</p>}
                     <input
+                        className="text-input"
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
                         type="text" placeholder="description"
                     />
                     <input 
+                    className="text-input"
                     type="text" placeholder="amount"
                     value = {this.state.amount} 
                     onChange={this.onAmountChange}
@@ -76,12 +77,14 @@ class ExpenseForm extends React.Component{
                     isOutsideRange = {() => false}
                     />
                     <textarea 
+                    className="text-area"
                     value={this.state.note}
                     onChange = {this.onNoteChange}
-                    placeholder="Enter a note"></textarea>
-                    <button >Add Expense</button>
+                    placeholder="Add a note for your expense"></textarea>
+                    <div className="bottom-form-div">
+                    <button className="button" >Save Expense</button>
+                    </div>
                 </form> 
-            </div>
         )
     }
 }

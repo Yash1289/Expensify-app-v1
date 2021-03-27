@@ -11,6 +11,7 @@ import filterExpenses from "./selectors/expenses"
 import AppRouter ,{ history } from "../src/Routers/AppRouter"
 import { Provider } from "react-redux"
 import "../src/firebase/firebase"
+import LoadingPage  from "./components/LoadingPage"
 import { firebase } from "./firebase/firebase"
 
 
@@ -32,9 +33,9 @@ const renderApp = () => {
     }
 }    
 
-ReactDOM.render(<p>LOADINGG...</p>, document.querySelector("#app"))
+ReactDOM.render(<LoadingPage />, document.querySelector("#app"))
 
-firebase.auth().onAuthStateChanged((user) => {
+ firebase.auth().onAuthStateChanged((user) => {
     if(user) {
         store.dispatch(login(user.uid))
         store.dispatch(startSetExpense()).then(() => {
@@ -48,5 +49,5 @@ firebase.auth().onAuthStateChanged((user) => {
         renderApp()
         history.push("/")
     }
-})
+}) 
 

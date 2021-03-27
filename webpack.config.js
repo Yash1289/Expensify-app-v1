@@ -1,5 +1,6 @@
 const path = require("path")
 const webpack = require("webpack")
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 
@@ -17,7 +18,7 @@ module.exports = (env) => {
     
 
     return {
-        entry: "./src/app.js",
+        entry: ["babel-polyfill"  ,"./src/app.js"],
         output: {
             path: path.join(__dirname, "public" , "dist"),
             filename: "bundle.js"
@@ -31,7 +32,15 @@ module.exports = (env) => {
             {
                 test: /\.s?css$/,
                 use: [ MiniCssExtractPlugin.loader , "css-loader" , "sass-loader"]
-            }],
+                },
+                {
+                    test: /\.(jpg|png)$/,
+                    use: {
+                        loader: 'url-loader',
+                    },
+                },
+            ]
+                
         },
         plugins : [
             new MiniCssExtractPlugin({
@@ -48,7 +57,7 @@ module.exports = (env) => {
                 "process.env.FIREBASE_MEASUREMENT_ID": JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID)
             })
         ],
-        devtool: isProduction ? "source-map" : "eval-cheap-module-source-map",
+        devtool: isProduction ? "source-map" : "eval-cheap-source-map",
         devServer: {
             contentBase: path.join(__dirname, "public"),
             historyApiFallback: true,
